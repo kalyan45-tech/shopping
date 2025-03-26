@@ -53,7 +53,7 @@ describe("User Signup API", () => {
 
         const res = await request(server)
             .post("/signup/signup")
-            .send({ name: "warner", email: "warner@gmail.com", password: "warner@45" });
+            .send({ name: "william", email: "william@gmail.com", password: "william@45" });
         expect(res.status).toBe(200);
         expect(res.text).toBe("successfully inserted");
     });
@@ -78,7 +78,7 @@ describe("User Signup API", () => {
     test("should return 409 for invalid credentials", async () => {
         const res = await request(server)
             .post("/signup/login")
-            .send({ email: "warner@gmail.com", password: "wrongpass" });
+            .send({ email: "william@gmail.com", password: "wrongpass" });
     
         expect(res.status).toBe(400);
         expect(res.body.message).toBe("Invalid credentials");
@@ -87,7 +87,7 @@ describe("User Signup API", () => {
     test("should return 200 for login successfull", async () => {
         const res = await request(server)
             .post("/signup/login")
-            .send({ email: "warner@gmail.com", password: "warner@45" });
+            .send({ email: "william@gmail.com", password: "william@45" });
     
         expect(res.status).toBe(200);
         expect(res.body.message).toBe("Login successful");
@@ -123,7 +123,7 @@ describe("User Signup API", () => {
     test("should return 200 for delete successfull", async () => {
         const res = await request(server)
             .delete("/signup/deleteuser")
-            .send({ email: "warner@gmail.com" });
+            .send({ email: "william@gmail.com" });
     
         expect(res.status).toBe(200);
         expect(res.body.message).toBe("deleted successfully");
